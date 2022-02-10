@@ -1,0 +1,25 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  background-color: gray;
+  height: 100px;
+}
+
+.header-center {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: blue;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.into-header {
+  margin:10px 30px;
+}
