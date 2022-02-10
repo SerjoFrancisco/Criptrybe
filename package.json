@@ -1,0 +1,23 @@
+{
+  "name": "criptrybe",
+  "version": "1.0.0",
+  "description": "Repositório do projeto bonus da semana OnTrack de fundamentos da trybe",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SerjoFrancisco/Criptrybe.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SerjoFrancisco/Criptrybe/issues"
+  },
+  "homepage": "https://github.com/SerjoFrancisco/Criptrybe#readme",
+  "dependencies": {
+    "node-fetch": "^2.6.7"
+  }
+}
