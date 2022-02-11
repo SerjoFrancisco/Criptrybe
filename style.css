@@ -23,3 +23,29 @@ header {
 .into-header {
   margin:10px 30px;
 }
+#list {
+  border: 2px solid red;
+}
+#form {
+  border: 2px solid black;
+}
+#hist {
+  border: 2px solid pink;
+}
+#list, #form, #hist {
+  display: inline-block;
+  width: 33%;
+  height: 100vh;
+  vertical-align: top;
+  padding: 40px;
+}
+main {
+  height: 100vh;
+}
+footer {
+  background-color: greenyellow;
+}
+.copy-left {
+  display:inline-block;
+  transform: rotate(180deg)
+}
