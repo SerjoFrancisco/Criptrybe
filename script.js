@@ -1,4 +1,4 @@
 window.onload = async () => {
   fetchCryptoList();
-  fetchCrypto('BTCBRL');
+  console.log(await fetchCrypto('BTCBRL'));
 }

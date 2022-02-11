@@ -1,12 +1,15 @@
-const fetchCryptoList = async () => {
-  const url = 'https://api.binance.com/api/v3/ticker/price';
-  const response = await fetch(url);
+const BASE_URL_BINANCE = 'https://api.binance.com';
+
+const customFetch = async (endpoint, callback) => {
+  const response = await fetch(BASE_URL_BINANCE + endpoint);
   const data = await response.json();
-  const brlData = data.filter((item) => item.symbol.includes('BRL'));
-  console.log(brlData);//REMOVERRRR
-  return brlData;
+  return callback(data);
 }
 
-if (typeof module !== 'undefined') {
+const callbackCryptoList = (data) => data.filter((item) => item.symbol.includes('BRL'));
+
+const fetchCryptoList = () => customFetch('/api/v3/ticker/price', callbackCryptoList);
+
+/* if (typeof module !== 'undefined') {
   module.exports = { fetchCryptoList };
-}
+} */
