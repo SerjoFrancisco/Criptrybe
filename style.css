@@ -3,6 +3,13 @@
   padding: 0px;
   box-sizing: border-box;
 }
+h1{
+  font-size: 50px;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+  color: aliceblue;
+}
 
 header {
   display: flex;
@@ -15,13 +22,14 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: blue;
-  width: 100%;
-  max-width: 1200px;
+  background-color: rgb(55, 138, 55);
+  width: 60%;
+  /* max-width: 1200px; */
 }
 
 .into-header {
   margin:10px 30px;
+  width: 20%;
 }
 #list {
   border: 2px solid red;
