@@ -17,7 +17,9 @@ header {
   background-color: gray;
   height: 100px;
 }
-
+header img {
+  height: 70px;
+}
 .header-center {
   display: flex;
   align-items: center;
