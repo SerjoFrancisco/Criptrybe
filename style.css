@@ -39,16 +39,13 @@ header img {
 #list, #form, #hist {
   display: inline-block;
   width: 33%;
-  height: 100vh;
+  height: 82vh;
   vertical-align: top;
   padding: 40px;
   background: #f5f5f5a3;
 }
 section#form {
   background: #f8f8f8a3;
-}
-main {
-  height: 100vh;
 }
 main h1, form label{
   font-size: 30px;
