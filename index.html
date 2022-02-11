@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Lato:wght@300;400&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <script src="script.js" defer></script>
   <script src="fetchCryptoList.js" defer></script>
@@ -26,25 +29,28 @@
       </div>
       <div class="col">
         <input type="text" class="form-control" placeholder="Password" aria-label="Last name">
-      </div>
-    </div><button type="submit" class="btn btn-success">Login</button></div>
+      </div><button type="submit" class="btn btn-success">Login</button>
+
+    </div></div>
   </header>
   <main>
-    <section id='list'>Lista de criptos</section>
+    <section id='list'><h1>Lista de criptos</h1></section>
     <section id='form'>
       <form>
         <label for="input-value">Compre sua moeda aqui</label>
-        <input type="text" id="input-value">
-        <select name="Moneys" id=""> 
-          <option value="Other">Crypto</option>
-          <option value="BRL">R$</option>
-        </select>
-        <button></button>
+        <div id="shopping">
+          <input type="text" id="input-value">
+          <select name="Moneys" id=""> 
+            <option value="Other">Crypto</option>
+            <option value="BRL">R$</option>
+          </select>
+        </div>
+        <button type="button" class="btn btn-success">Success</button>
       </form>
       <div id="saldo"></div>
     </section>
-    <section id='hist'>Histórico:</section>
+    <section id='hist'><h1>Histórico:</h1></section>
   </main>
-  <footer><span class="copy-left">&copy;</span> CrypTrybe Copyleft</footer>
+  <footer><span class="copy-left">&copy;</span><a href="https://github.com/SerjoFrancisco/Criptrybe"> CrypTrybe Copyleft</a></footer>
 </body>
 </html>
