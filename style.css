@@ -95,3 +95,7 @@ footer a, footer a:hover{
   overflow-y: hidden;
   overflow-y: scroll;
 }
+
+.item-list {
+  list-style: none;
+}

@@ -15,7 +15,7 @@ const listCrypto = async () => {
   document.querySelector('.carregando').remove();
   list.forEach(({ symbol, price }) => {
     const text = `${symbol} Price: ${price}`;
-    const li = createElement('li');
+    const li = createElement('li', 'item-list');
     li.innerText = text;
     cryptoList.appendChild(li);
   });
