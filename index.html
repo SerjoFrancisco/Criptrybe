@@ -4,27 +4,104 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <script src="index.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Lato:wght@300;400&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="script.js" defer></script>
+  <script src="fetchCryptoList.js" defer></script>
+  <script src="fetchCrypto.js" defer></script>
+  <link rel="stylesheet" href="style.css">
+  <title>Criptrybe</title>
 </head>
 <body>
 
-  <div class="register">
-    <input class="username" placeholder="Create your username" />
-    <input class="password" type="password" placeholder="Create your password" />
-    <input type="password" placeholder="Confirm your password" />
-    <input type="submit" id="create" value="Create your account" />
-  </div>
+  <header>
 
-  <div class="login">
-    <input class="username" placeholder="Username" />
-    <input class="password" type="password" placeholder="Password" />
-    <input id="login" type="submit" value="Login"/>
-  </div>
+    <div class="into-header">
+      <img src="images/image.png" alt="Logo da Trybe">
 
-  <div class="app">
-    <h1>CrypTrybe</h1>
-  </div>
+      <div class="logged">
+        <div class="adc-funds">     
+          <p>Adicionar Fundos</p>
+          <span class="material-icons">account_balance_wallet</span>
+        </div>
+      </div>    
+    </div>
 
+    <div class="header-center">
+      <h1>CrypTrybe</h1>
+    </div>
+
+    <div class="into-header">
+
+      <div class="logged">
+        <p class="user-text"></p>
+        <p class="logout-text">Logout</p>
+      </div>
+
+      <div class="not-logged">
+        <p class="login-text">Login</p>
+        <p class="register-text">Registre-se</p>
+      </div>
+
+    </div>
+
+  </header>
+
+  <main>
+    <section id="list">
+      <div>
+        <h1>Lista de criptos</h1>
+        <ul id="crypto-list"></ul>
+      </div>
+    </section>
+
+    <section id='form'>
+
+      <div class="logged">
+        <form>
+          <label for="input-value">Compre sua moeda aqui</label>
+          <div id="shopping">
+            <input type="text" id="input-value" placeholder="Valor (R$)">
+            <select title="Moneys" name="Moneys" id="options"> 
+              <option value="Other">Cryptos</option>
+            </select>
+          </div>
+          <div class="buttons"> 
+            <button type="button" class="btn btn-success">Comprar?</button>
+            <button type="button" class="btn btn-danger">Vender! Vender!</button>
+          </div>
+        </form>
+        <div id="saldo"></div>
+      </div>
+
+      <div class="not-logged login">
+        <div class="row">
+          <input autofocus class="form-control username" placeholder="Username">
+          <input type="password" class="form-control password" placeholder="Password">
+          <button id="login-btn" type="submit" class="btn btn-success">Login</button>
+        </div>
+        <p>Não tem um conta? <span class="register-text">Registre-se aqui!</span></p>
+      </div>
+
+      <div class="not-logged register">
+        <div class="row">
+          <input autofocus class="form-control username" placeholder="Username">
+          <input type="password" class="form-control password" placeholder="Password">
+          <input type="password" class="form-control password" placeholder="Password Confirmation">
+          <button id="register-btn" type="submit" class="btn btn-success">Criar Conta</button>
+        </div>
+      </div>
+
+    </section>
+    <section id="hist">
+      <div class="logged">
+        <h1>Histórico:</h1>
+      </div>
+    </section>
+  </main>
+  <footer><span class="copy-left">&copy;</span><a href="https://github.com/SerjoFrancisco/Criptrybe"> CrypTrybe Copyleft</a></footer>
 </body>
 </html>

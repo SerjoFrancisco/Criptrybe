@@ -1,0 +1,188 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+}
+
+header h1{
+  text-align: center;
+  width: 100%;
+  color: #28a745;
+  font: bold 50px 'Lato', sans-serif
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  border-bottom: 1px solid #ccc;
+  height: 100px;
+}
+
+header img {
+  height: 70px;
+}
+
+.header-center {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 40%;
+  /* max-width: 1200px; */
+}
+
+.form-control {
+  margin-top: 20px;
+}
+
+.into-header {
+  display: flex;
+  align-items: center;
+  margin: 10px 30px;
+  width: 30%;
+}
+
+.into-header p {
+  margin: 0px;
+  font-weight: 700;
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.into-header p:hover, .register-text:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: rgb(68, 70, 62);
+}
+
+.adc-funds {
+  display: flex;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.user-text span {
+  text-transform: capitalize;
+}
+
+.into-header .not-logged {
+  display: flex;
+  flex-direction: row;
+  margin-left: 150px;
+}
+
+#list, #form, #hist {
+  display: inline-block;
+  width: 20%;
+  height: 82vh;
+  vertical-align: top;
+  padding: 40px;
+  background: #f5f5f5a3;
+}
+
+section#form {
+  background: #f8f8f8a3;
+  width: 59%;
+}
+
+main h1, form label{
+  font-size: 30px;
+  font-weight: bold;
+  display: block;
+}
+
+form label {
+  text-align: center;
+}
+
+#shopping, .buttons {
+  width: 90%;
+  margin: auto;
+  padding: 5px;
+}
+
+#shopping, #shopping:focus {
+  border: 1px solid #ccc;
+  background-color: white;
+}
+
+#shopping input, #shopping input:focus{
+  width: 70%;
+  border: none;
+  outline: 0;
+}
+
+.buttons {
+  padding: 0;
+}
+
+#shopping select, #shopping select:focus{
+  width: 28%;
+  border: none;
+  background-color: white;
+  outline: 0;
+}
+
+#form .btn{
+  display: inline-block;
+  margin: 15px auto;
+  width: 49%;
+}
+
+.btn-danger{
+  float: right;
+}
+
+footer {
+  text-align: center;
+  background-color: #28a745;
+  color: white;
+  padding: 25px 6px;
+  font-size: 18px;
+}
+
+footer a, footer a:hover{
+  color: white;
+}
+
+.copy-left {
+  display:inline-block;
+  transform: rotate(180deg)
+}
+
+#list {
+  overflow-y: hidden;
+  overflow-y: scroll;
+}
+
+.item-list {
+  list-style: none;
+  border-bottom: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  font-weight: 700;
+  border-radius: 5px;
+  margin-bottom: 2px;
+  min-width: 190px;
+  cursor: pointer;
+}
+
+#list h1{
+  background-color: #28a745;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 12px;
+  min-width: 190px;
+}
+
+.item-list span {
+  display: inline-block;
+  width: 70px;
+  text-align: center;
+  background-color: #28a745;
+  margin: 1px 0px;
+  border-radius: 5px;
+  color: white;
+}
