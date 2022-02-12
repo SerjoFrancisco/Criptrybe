@@ -38,7 +38,7 @@ header img {
 
 #list, #form, #hist {
   display: inline-block;
-  width: 33%;
+  width: 20%;
   height: 82vh;
   vertical-align: top;
   padding: 40px;
@@ -46,6 +46,7 @@ header img {
 }
 section#form {
   background: #f8f8f8a3;
+  width: 59%;
 }
 main h1, form label{
   font-size: 30px;
