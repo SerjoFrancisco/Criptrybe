@@ -9,8 +9,11 @@ const createElement = (tag, ...classNames) => {
 }
 
 const listListener = (event) => {
-  const targetId = event.target.className;
-  document.querySelector(`#options .${targetId}`).setAttribute('selected', '');
+  const targetId = event.target.dataset.symbol;
+  const optionsChildren = Array.from(select.children);
+  const toRemove = optionsChildren.find((child) => child.hasAttribute('selected'));
+  if (toRemove) toRemove.removeAttribute('selected');
+  select.querySelector(`.${targetId}`).setAttribute('selected', '');
 }
 
 const listCrypto = async () => {
@@ -20,9 +23,10 @@ const listCrypto = async () => {
   const list = await fetchCryptoList();
   document.querySelector('.carregando').remove();
   list.forEach(({ symbol, price }) => {
-    const text = `<span class="${symbol}">${symbol.substring(0, symbol.length -3)}</span> ${parseFloat(price).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`;
-    const li = createElement('li', 'item-list', symbol);
+    const text = `<span data-symbol="${symbol}">${symbol.substring(0, symbol.length -3)}</span> ${parseFloat(price).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`;
+    const li = createElement('li', 'item-list');
     li.innerHTML = text;
+    li.dataset.symbol = symbol;
     li.addEventListener('click', listListener);
     cryptoList.appendChild(li);
   });
@@ -40,7 +44,5 @@ async function cryptOptions () {
 
 window.onload = async () => {
   await listCrypto();
-  // await fetchCryptoList();
-  console.log(await fetchCrypto('BTCBRL'));
   cryptOptions();
 }
