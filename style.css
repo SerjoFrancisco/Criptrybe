@@ -39,7 +39,7 @@ header img {
 .into-header {
   display: flex;
   align-items: center;
-  margin:10px 30px;
+  margin: 10px 30px;
   width: 30%;
 }
 
@@ -47,16 +47,25 @@ header img {
   margin: 0px;
   font-weight: 700;
   margin-right: 10px;
+  display: inline-block;
+}
+
+.into-header p:hover, .register-text:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: rgb(68, 70, 62);
 }
 
 .adc-funds {
   display: flex;
   cursor: pointer;
+  margin-right: 10px;
 }
 
-.into-header p:hover {
-  text-decoration: underline;
-  color: rgb(68, 70, 62);
+.into-header .not-logged {
+  display: flex;
+  flex-direction: row;
+  margin-left: 150px;
 }
 
 #list, #form, #hist {

@@ -1,6 +1,62 @@
 const cryptoList = document.getElementById('crypto-list');
 const select = document.getElementById('options');
 const loggedElem = document.querySelectorAll('.logged');
+const notLoggedElem = document.querySelectorAll('.not-logged');
+
+const registerElem = document.querySelector('.register');
+const registerBtn = document.querySelector('#register-btn');
+const registerText = document.querySelectorAll('.register-text');
+
+const loginElem = document.querySelector('.login');
+const loginBtn = document.querySelector('#login-btn');
+const loginText = document.querySelector('.login-text');
+
+const verifyBlanks = () => {
+  const username = registerElem.querySelector('.username').value;
+  const password = registerElem.querySelectorAll('.password');
+  return (username && password[0].value && password[1].value);
+}
+
+const verifyPassword = () => {
+  const passwords = registerElem.querySelectorAll('.password');
+  return passwords[0].value === passwords[1].value;
+}
+
+const createUser = () => {
+  if (!verifyBlanks()) {
+    console.log('Fields cannot be blank');
+    return;
+  }
+  if (!verifyPassword()) {
+    console.log('Password mut match confirmation!');
+    return
+  }
+  loginElem.style.display = 'block';
+  registerElem.style.display = 'none';
+  const username = registerElem.querySelector('.username').value;
+  const password = registerElem.querySelector('.password').value;
+  localStorage.setItem('userData', JSON.stringify({ username, password }));
+}
+
+const loginLogout = (block, none) => {
+  block.forEach((e) => e.style.display = 'block');
+  none.forEach((e) => e.style.display = 'none');
+}
+
+const loginRegister = (block, none) => {
+  block.style.display = 'block';
+  none.style.display = 'none';
+}
+
+const login = () => {
+  const user = loginElem.querySelector('.username').value;
+  const pwd = loginElem.querySelector('.password').value;
+  const { username, password } = JSON.parse(localStorage.getItem('userData'));
+  if(user === username && pwd === password) {
+    window.alert('Welcome, ' + username);
+    loginLogout(loggedElem, notLoggedElem);
+  }
+}
 
 const createElement = (tag, ...classNames) => {
   const e = document.createElement(tag);
@@ -44,9 +100,12 @@ async function cryptOptions () {
 }
 
 window.onload = async () => {
-  loggedElem.forEach((e) => {
-    e.style.display = 'none';
-  });
+  loginLogout(notLoggedElem, loggedElem);
+  loginRegister(registerElem, loginElem);
+  registerText.forEach((e) => e.addEventListener('click', () => loginRegister(registerElem, loginElem)));
+  loginText.addEventListener('click', () => loginRegister(loginElem, registerElem));
+  registerBtn.addEventListener('click', createUser);
+  loginBtn.addEventListener('click', login);
   await listCrypto();
   cryptOptions();
 }
