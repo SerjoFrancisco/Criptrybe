@@ -66,10 +66,10 @@ header img {
   text-transform: capitalize;
 }
 
-.into-header .not-logged {
+.into-header .not-logged, .into-header .logged {
   display: flex;
   flex-direction: row;
-  margin-left: 150px;
+  margin-left: 130px;
 }
 
 #list, #form, #hist {

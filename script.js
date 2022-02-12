@@ -54,9 +54,12 @@ const login = () => {
   const user = loginElem.querySelector('.username').value;
   const pwd = loginElem.querySelector('.password').value;
   const { username, password } = JSON.parse(localStorage.getItem('userData'));
-  if(user === username && pwd === password) {
-    document.querySelector('.user-text').innerHTML = `Bem-vindo(a), <span>${JSON.parse(localStorage.getItem('userData')).username}</span>!`;
+  if (user === username && pwd === password) {
     loginLogout(loggedElem, notLoggedElem);
+    document.querySelector('.user-text').innerHTML = `Bem-vindo(a), <span>${JSON.parse(localStorage.getItem('userData')).username}</span>!`;
+    sessionStorage.setItem('logged', 'true');
+  } else {
+    console.log('Incorrect User and/or Password');
   }
 }
 
@@ -102,13 +105,19 @@ async function cryptOptions () {
 }
 
 window.onload = async () => {
-  loginLogout(notLoggedElem, loggedElem);
-  loginRegister(registerElem, loginElem);
+  if (JSON.parse(sessionStorage.getItem('logged'))) {
+    loginLogout(loggedElem, notLoggedElem);
+    document.querySelector('.user-text').innerHTML = `Bem-vindo(a), <span>${JSON.parse(localStorage.getItem('userData')).username}</span>!`;
+  } else {
+    loginLogout(notLoggedElem, loggedElem);
+    loginRegister(registerElem, loginElem);
+  }
   registerText.forEach((e) => e.addEventListener('click', () => loginRegister(registerElem, loginElem)));
   loginText.addEventListener('click', () => loginRegister(loginElem, registerElem));
   logoutText.addEventListener('click', () => {
     loginLogout(notLoggedElem, loggedElem);
     loginRegister(loginElem, registerElem);
+    sessionStorage.setItem('logged', 'false');
   });
   registerBtn.addEventListener('click', createUser);
   loginBtn.addEventListener('click', login);
