@@ -128,4 +128,26 @@ footer a, footer a:hover{
 
 .item-list {
   list-style: none;
+  border-bottom: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  font-weight: 700;
+  border-radius: 5px;
+  margin-bottom: 2px;
+}
+#list h1{
+  background-color: #28a745;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 12px;
+}
+.item-list span {
+  display: inline-block;
+  width: 70px;
+  text-align: center;
+  background-color: #28a745;
+  margin: 1px 0px;
+  border-radius: 5px;
+  color: white;
 }
