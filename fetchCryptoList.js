@@ -9,7 +9,3 @@ const customFetch = async (endpoint, callback) => {
 const callbackCryptoList = (data) => data.filter((item) => item.symbol.includes('BRL'));
 
 const fetchCryptoList = () => customFetch('/api/v3/ticker/price', callbackCryptoList);
-
-/* if (typeof module !== 'undefined') {
-  module.exports = { fetchCryptoList };
-} */
