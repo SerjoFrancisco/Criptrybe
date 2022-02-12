@@ -37,7 +37,12 @@ const createUser = () => {
   registerElem.style.display = 'none';
   const username = registerElem.querySelector('.username').value;
   const password = registerElem.querySelector('.password').value;
-  localStorage.setItem('userData', JSON.stringify({ username, password }));
+  const usersData = JSON.parse(localStorage.getItem('usersData'));
+  if (!usersData) {
+    localStorage.setItem('usersData', JSON.stringify([{ username, password }]));
+  } else {
+    localStorage.setItem('usersData', JSON.stringify([...usersData, { username, password }]));
+  }
 }
 
 const loginLogout = (block, none) => {
@@ -53,11 +58,13 @@ const loginRegister = (block, none) => {
 const login = () => {
   const user = loginElem.querySelector('.username').value;
   const pwd = loginElem.querySelector('.password').value;
-  const { username, password } = JSON.parse(localStorage.getItem('userData'));
-  if (user === username && pwd === password) {
+  const usersData = JSON.parse(localStorage.getItem('usersData'));
+  const { username, password } = usersData.find(({ username }) => username === user);
+  if (pwd === password) {
     loginLogout(loggedElem, notLoggedElem);
-    document.querySelector('.user-text').innerHTML = `Bem-vindo(a), <span>${JSON.parse(localStorage.getItem('userData')).username}</span>!`;
+    document.querySelector('.user-text').innerHTML = `Bem-vindo(a), <span>${username}</span>!`;
     sessionStorage.setItem('logged', 'true');
+    sessionStorage.setItem('username', username);
   } else {
     console.log('Incorrect User and/or Password');
   }
@@ -107,11 +114,12 @@ async function cryptOptions () {
 window.onload = async () => {
   if (JSON.parse(sessionStorage.getItem('logged'))) {
     loginLogout(loggedElem, notLoggedElem);
-    document.querySelector('.user-text').innerHTML = `Bem-vindo(a), <span>${JSON.parse(localStorage.getItem('userData')).username}</span>!`;
+    document.querySelector('.user-text').innerHTML = `Bem-vindo(a), <span>${sessionStorage.getItem('username')}</span>!`;
   } else {
     loginLogout(notLoggedElem, loggedElem);
     loginRegister(registerElem, loginElem);
   }
+
   registerText.forEach((e) => e.addEventListener('click', () => loginRegister(registerElem, loginElem)));
   loginText.addEventListener('click', () => loginRegister(loginElem, registerElem));
   logoutText.addEventListener('click', () => {
@@ -119,8 +127,10 @@ window.onload = async () => {
     loginRegister(loginElem, registerElem);
     sessionStorage.setItem('logged', 'false');
   });
+
   registerBtn.addEventListener('click', createUser);
   loginBtn.addEventListener('click', login);
+
   await listCrypto();
   cryptOptions();
 }
