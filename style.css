@@ -32,8 +32,26 @@ header img {
   padding-top: 20px;
 }
 .into-header {
+  display: flex;
+  align-items: center;
   margin:10px 30px;
   width: 30%;
+}
+
+.into-header p {
+  margin: 0px;
+  font-weight: 700;
+  margin-right: 10px;
+}
+
+.adc-funds {
+  display: flex;
+  cursor: pointer;
+}
+
+.into-header p:hover {
+  text-decoration: underline;
+  color: rgb(68, 70, 62);
 }
 
 #list, #form, #hist {
