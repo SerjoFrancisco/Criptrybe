@@ -3,6 +3,8 @@ const select = document.getElementById('options');
 const loggedElem = document.querySelectorAll('.logged');
 const notLoggedElem = document.querySelectorAll('.not-logged');
 
+const imagePanel = document.querySelector('#hist .not-logged');
+
 const registerElem = document.querySelector('.register');
 const registerBtn = document.querySelector('#register-btn');
 const registerText = document.querySelectorAll('.register-text');
@@ -12,6 +14,13 @@ const loginBtn = document.querySelector('#login-btn');
 const loginText = document.querySelector('.login-text');
 
 const logoutText = document.querySelector('.logout-text');
+
+const createCustomImage = (imageSource, imageClass) => {
+  const img = document.createElement('img');
+  img.src = imageSource;
+  img.className = imageClass;
+  return img;
+}
 
 const verifyBlanks = () => {
   const username = registerElem.querySelector('.username').value;
@@ -43,6 +52,8 @@ const createUser = () => {
   } else {
     localStorage.setItem('usersData', JSON.stringify([...usersData, { username, password }]));
   }
+  registerElem.querySelector('.username').value = '';
+  registerElem.querySelector('.password').value = '';
 }
 
 const loginLogout = (block, none) => {
@@ -68,6 +79,8 @@ const login = () => {
   } else {
     console.log('Incorrect User and/or Password');
   }
+  loginElem.querySelector('.username').value = '';
+  loginElem.querySelector('.password').value = '';
 }
 
 const createElement = (tag, ...classNames) => {
@@ -91,13 +104,17 @@ const listCrypto = async () => {
   cryptoList.appendChild(carregando);
   const list = await fetchCryptoList();
   document.querySelector('.carregando').remove();
-  list.forEach(({ symbol, price }) => {
+  list.forEach(({ symbol, price }, index) => {
     const text = `<span data-symbol="${symbol}">${symbol.substring(0, symbol.length - 3)}</span> ${parseFloat(price).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`;
     const li = createElement('li', 'item-list');
     li.innerHTML = text;
     li.dataset.symbol = symbol;
     li.addEventListener('click', listListener);
     cryptoList.appendChild(li);
+    if(index < 8) {
+      imagePanel.appendChild(createCustomImage(`/images/${symbol.substring(0, symbol.length - 3)}.png`, 'logo'));
+    }
+    
   });
 }
 
