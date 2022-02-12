@@ -15,9 +15,9 @@ const listCrypto = async () => {
   const list = await fetchCryptoList();
   document.querySelector('.carregando').remove();
   list.forEach(({ symbol, price }) => {
-    const text = `${symbol.substring(0, symbol.length -3)} ${parseFloat(price).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`;
+    const text = `<span>${symbol.substring(0, symbol.length -3)}</span> ${parseFloat(price).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`;
     const li = createElement('li', 'item-list');
-    li.innerText = text;
+    li.innerHTML = text;
     cryptoList.appendChild(li);
   });
 }
