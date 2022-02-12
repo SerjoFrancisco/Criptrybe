@@ -133,6 +133,8 @@ footer a, footer a:hover{
   font-weight: 700;
   border-radius: 5px;
   margin-bottom: 2px;
+  min-width: 190px;
+  cursor: pointer;
 }
 #list h1{
   background-color: #28a745;
@@ -141,6 +143,7 @@ footer a, footer a:hover{
   border-radius: 5px;
   padding: 5px;
   margin-bottom: 12px;
+  min-width: 190px;
 }
 .item-list span {
   display: inline-block;

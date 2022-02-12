@@ -8,6 +8,11 @@ const createElement = (tag, ...classNames) => {
   return el;
 }
 
+const listListener = (event) => {
+  const targetId = event.target.className;
+  document.querySelector(`#options .${targetId}`).setAttribute('selected', '');
+}
+
 const listCrypto = async () => {
   const carregando = createElement('div', 'carregando');
   carregando.innerText = 'Carregando...';
@@ -15,9 +20,10 @@ const listCrypto = async () => {
   const list = await fetchCryptoList();
   document.querySelector('.carregando').remove();
   list.forEach(({ symbol, price }) => {
-    const text = `<span>${symbol.substring(0, symbol.length -3)}</span> ${parseFloat(price).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`;
-    const li = createElement('li', 'item-list');
+    const text = `<span class="${symbol}">${symbol.substring(0, symbol.length -3)}</span> ${parseFloat(price).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`;
+    const li = createElement('li', 'item-list', symbol);
     li.innerHTML = text;
+    li.addEventListener('click', listListener);
     cryptoList.appendChild(li);
   });
 }
@@ -25,9 +31,9 @@ const listCrypto = async () => {
 async function cryptOptions () {
   const list = await fetchCryptoList();
   list.forEach(({ symbol }) => {
-    const option = createElement('option');
+    const option = createElement('option', symbol);
     option.value = symbol.substring(0, symbol.length -3);
-    option.innerText= symbol.substring(0, symbol.length -3);
+    option.innerText = symbol.substring(0, symbol.length -3);
     select.appendChild(option);
   });
 }
@@ -36,5 +42,5 @@ window.onload = async () => {
   await listCrypto();
   // await fetchCryptoList();
   console.log(await fetchCrypto('BTCBRL'));
-  cryptOptions()
+  cryptOptions();
 }
