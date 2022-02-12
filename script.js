@@ -1,4 +1,5 @@
 const cryptoList = document.getElementById('crypto-list');
+const select = document.getElementById('options');
 
 const createElement = (tag, ...classNames) => {
   const el = document.createElement(tag);
@@ -21,8 +22,19 @@ const listCrypto = async () => {
   });
 }
 
+async function cryptOptions () {
+  const list = await fetchCryptoList();
+  list.forEach(({ symbol }) => {
+    const option = createElement('option');
+    option.value = symbol.substring(0, symbol.length -3);
+    option.innerText= symbol.substring(0, symbol.length -3);
+    select.appendChild(option);
+  });
+}
+
 window.onload = async () => {
   await listCrypto();
   // await fetchCryptoList();
   console.log(await fetchCrypto('BTCBRL'));
+  cryptOptions()
 }

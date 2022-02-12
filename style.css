@@ -56,7 +56,7 @@ header img {
 
 #list, #form, #hist {
   display: inline-block;
-  width: 33%;
+  width: 20%;
   height: 82vh;
   vertical-align: top;
   padding: 40px;
@@ -64,6 +64,7 @@ header img {
 }
 section#form {
   background: #f8f8f8a3;
+  width: 59%;
 }
 main h1, form label{
   font-size: 30px;
@@ -73,26 +74,37 @@ main h1, form label{
 form label {
   text-align: center;
 }
-#shopping {
+#shopping, .buttons {
   width: 90%;
   margin: auto;
-  border: 1px solid #ccc;
-  background-color: white;
   padding: 5px;
 }
-#shopping input{
+#shopping, #shopping:focus {
+  border: 1px solid #ccc;
+  background-color: white;
+}
+#shopping input, #shopping input:focus{
   width: 70%;
   border: none;
+  outline: 0;
 }
-#shopping select{
+.buttons {
+  padding: 0;
+}
+#shopping select, #shopping select:focus{
   width: 28%;
   border: none;
   background-color: white;
+  outline: 0;
 }
 form .btn{
-  display: block;
+  display: inline-block;
   margin: 15px auto;
-  width: 90%;
+  width: 49%;
+}
+
+.btn-danger{
+  float: right;
 }
 footer {
   text-align: center;
