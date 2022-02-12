@@ -62,6 +62,10 @@ header img {
   margin-right: 10px;
 }
 
+.user-text span {
+  text-transform: capitalize;
+}
+
 .into-header .not-logged {
   display: flex;
   flex-direction: row;

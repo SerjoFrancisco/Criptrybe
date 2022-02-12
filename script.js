@@ -11,6 +11,8 @@ const loginElem = document.querySelector('.login');
 const loginBtn = document.querySelector('#login-btn');
 const loginText = document.querySelector('.login-text');
 
+const logoutText = document.querySelector('.logout-text');
+
 const verifyBlanks = () => {
   const username = registerElem.querySelector('.username').value;
   const password = registerElem.querySelectorAll('.password');
@@ -53,7 +55,7 @@ const login = () => {
   const pwd = loginElem.querySelector('.password').value;
   const { username, password } = JSON.parse(localStorage.getItem('userData'));
   if(user === username && pwd === password) {
-    window.alert('Welcome, ' + username);
+    document.querySelector('.user-text').innerHTML = `Bem-vindo(a), <span>${JSON.parse(localStorage.getItem('userData')).username}</span>!`;
     loginLogout(loggedElem, notLoggedElem);
   }
 }
@@ -104,6 +106,10 @@ window.onload = async () => {
   loginRegister(registerElem, loginElem);
   registerText.forEach((e) => e.addEventListener('click', () => loginRegister(registerElem, loginElem)));
   loginText.addEventListener('click', () => loginRegister(loginElem, registerElem));
+  logoutText.addEventListener('click', () => {
+    loginLogout(notLoggedElem, loggedElem);
+    loginRegister(loginElem, registerElem);
+  });
   registerBtn.addEventListener('click', createUser);
   loginBtn.addEventListener('click', login);
   await listCrypto();
