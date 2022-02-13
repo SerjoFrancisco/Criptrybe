@@ -81,7 +81,7 @@ const login = () => {
   const { username,password } = user;
   if (pwd === password) {
     loginLogout(loggedElem, notLoggedElem);
-    document.querySelector('.user-text').innerHTML = `Bem-vindo(a), <span>${username}</span>!`;
+    document.querySelector('.user-text').innerHTML = `Bem-vindo(a), <span data-name="${username}">${username}</span>!`;
     sessionStorage.setItem('logged', 'true');
     sessionStorage.setItem('username', username);
   } else {
