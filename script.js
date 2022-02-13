@@ -3,7 +3,7 @@ const select = document.getElementById('options');
 const loggedElem = document.querySelectorAll('.logged');
 const notLoggedElem = document.querySelectorAll('.not-logged');
 
-const imagePanel = document.querySelector('#hist .not-logged');
+const imagePanel = document.querySelector('#hist > .not-logged');
 
 const registerElem = document.querySelector('.register');
 const registerBtn = document.querySelector('#register-btn');
@@ -23,7 +23,7 @@ const walletElem = document.querySelectorAll('#wallet');
 const createCustomImage = (imageSource, imageClass) => {
   const img = document.createElement('img');
   img.src = imageSource;
-  img.className = imageClass;
+  img.className = imageClass;// + 'img-thumbnail';
   return img;
 }
 
@@ -53,9 +53,11 @@ const createUser = () => {
   const password = registerElem.querySelector('.password').value;
   const usersData = JSON.parse(localStorage.getItem('usersData'));
   if (!usersData) {
-    localStorage.setItem('usersData', JSON.stringify([{ username, password }]));
-  } else {
-    localStorage.setItem('usersData', JSON.stringify([...usersData, { username, password }]));
+    localStorage.setItem(username, JSON.stringify({
+      password,
+      funds: 0,
+      positions: {},
+    }));
   }
   registerElem.querySelector('.username').value = '';
   registerElem.querySelector('.password').value = '';
@@ -116,7 +118,7 @@ const listCrypto = async () => {
     li.dataset.symbol = symbol;
     li.addEventListener('click', listListener);
     cryptoList.appendChild(li);
-    if(index < 8) {
+    if(index < 12) {
       imagePanel.appendChild(createCustomImage(`/images/${symbol.substring(0, symbol.length - 3)}.png`, 'logo'));
     }
     
