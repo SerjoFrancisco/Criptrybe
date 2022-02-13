@@ -6,6 +6,7 @@ const buyCrypto = async () => {
   const value = parseFloat(document.getElementById('input-value').value);
   const saldo = JSON.parse(localStorage.getItem('saldo'));
   if ( saldo >= value) {
+    
     localStorage.getItem('')
     localStorage.setItem('saldo', saldo - value);
     console.log(saldo);
