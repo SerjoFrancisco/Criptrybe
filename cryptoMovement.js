@@ -6,16 +6,17 @@ const buyCrypto = async () => {
   const value = parseFloat(document.getElementById('input-value').value);
   const saldo = JSON.parse(localStorage.getItem('saldo'));
   if ( saldo >= value) {
+    document
+    localStorage.getItem('')
     localStorage.setItem('saldo', saldo - value);
     console.log(saldo);
     const result = value / price;
     console.log(result.toFixed(8));
     return result.toFixed(8);
-    
   }
 }
 
-const sellCrypto = async () => {
+const sellCrypto = async (symbol) => {
 
 }
 
