@@ -15,6 +15,8 @@ const loginText = document.querySelector('.login-text');
 
 const logoutText = document.querySelector('.logout-text');
 
+const btnComprar = document.getElementById('btn-comprar');
+
 const createCustomImage = (imageSource, imageClass) => {
   const img = document.createElement('img');
   img.src = imageSource;
@@ -122,13 +124,14 @@ async function cryptOptions () {
   const list = await fetchCryptoList();
   list.forEach(({ symbol }) => {
     const option = createElement('option', symbol);
-    option.value = symbol.substring(0, symbol.length - 3);
+    option.value = symbol;
     option.innerText = symbol.substring(0, symbol.length - 3);
     select.appendChild(option);
   });
 }
 
 window.onload = async () => {
+  
   if (JSON.parse(sessionStorage.getItem('logged'))) {
     loginLogout(loggedElem, notLoggedElem);
     document.querySelector('.user-text').innerHTML = `Bem-vindo(a), <span>${sessionStorage.getItem('username')}</span>!`;
@@ -144,10 +147,11 @@ window.onload = async () => {
     loginRegister(loginElem, registerElem);
     sessionStorage.setItem('logged', 'false');
   });
-
+  
   registerBtn.addEventListener('click', createUser);
   loginBtn.addEventListener('click', login);
 
   await listCrypto();
-  cryptOptions();
+  await cryptOptions();
+  btnComprar.addEventListener('click', buyCrypto);
 }
