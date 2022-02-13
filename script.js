@@ -15,7 +15,10 @@ const loginText = document.querySelector('.login-text');
 
 const logoutText = document.querySelector('.logout-text');
 
+const btnAdicionar = document.querySelector('.adc-funds p');
 const btnComprar = document.getElementById('btn-comprar');
+
+const walletElem = document.querySelectorAll('#wallet');
 
 const createCustomImage = (imageSource, imageClass) => {
   const img = document.createElement('img');
@@ -156,5 +159,6 @@ window.onload = async () => {
 
   await listCrypto();
   await cryptOptions();
+  btnAdicionar.addEventListener('click', addFunds);
   btnComprar.addEventListener('click', buyCrypto);
 }
