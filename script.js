@@ -50,9 +50,11 @@ const createUser = () => {
   const password = registerElem.querySelector('.password').value;
   const usersData = JSON.parse(localStorage.getItem('usersData'));
   if (!usersData) {
-    localStorage.setItem('usersData', JSON.stringify([{ username, password }]));
-  } else {
-    localStorage.setItem('usersData', JSON.stringify([...usersData, { username, password }]));
+    localStorage.setItem(username, JSON.stringify({
+      password,
+      funds: 0,
+      positions: {},
+    }));
   }
   registerElem.querySelector('.username').value = '';
   registerElem.querySelector('.password').value = '';
