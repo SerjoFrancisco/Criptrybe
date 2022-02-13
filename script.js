@@ -15,10 +15,8 @@ const loginText = document.querySelector('.login-text');
 
 const logoutText = document.querySelector('.logout-text');
 
-const btnAdicionar = document.querySelector('.adc-funds p');
 const btnComprar = document.getElementById('btn-comprar');
-
-const walletElem = document.querySelectorAll('#wallet');
+const walletElem = document.querySelectorAll('.wallet');
 
 const createCustomImage = (imageSource, imageClass) => {
   const img = document.createElement('img');
@@ -122,7 +120,6 @@ const listCrypto = async () => {
     if(index < 12) {
       imagePanel.appendChild(createCustomImage(`/images/${symbol.substring(0, symbol.length - 3)}.png`, 'logo'));
     }
-    
   });
 }
 
@@ -137,7 +134,6 @@ async function cryptOptions () {
 }
 
 window.onload = async () => {
-  
   if (JSON.parse(sessionStorage.getItem('logged'))) {
     loginLogout(loggedElem, notLoggedElem);
     document.querySelector('.user-text').innerHTML = `Bem-vindo(a), <span>${sessionStorage.getItem('username')}</span>!`;
@@ -159,6 +155,5 @@ window.onload = async () => {
 
   await listCrypto();
   await cryptOptions();
-  btnAdicionar.addEventListener('click', addFunds);
   btnComprar.addEventListener('click', buyCrypto);
 }

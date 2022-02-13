@@ -12,8 +12,6 @@
   <script src="script.js" defer></script>
   <script src="fetchCryptoList.js" defer></script>
   <script src="fetchCrypto.js" defer></script>
-  <script src="cryptoMovement.js" defer></script>
-  <script src="addFunds.js" defer></script>
   <link rel="stylesheet" href="style.css">
   <title>Criptrybe</title>
 </head>
@@ -72,8 +70,8 @@
             </select>
           </div>
           <div class="buttons"> 
-            <button id="btn-comprar" type="button" class="btn btn-success">Comprar?</button>
-            <button id="btn-vender" type="button" class="btn btn-danger">Vender! Vender!</button>
+            <button type="button" class="btn btn-success">Comprar?</button>
+            <button type="button" class="btn btn-danger">Vender! Vender!</button>
           </div>
         </form>
         <div id="saldo"></div>
@@ -95,30 +93,6 @@
           <input type="password" class="form-control password" placeholder="Password Confirmation">
           <button id="register-btn" type="submit" class="btn btn-success">Criar Conta</button>
         </div>
-      </div>
-      
-      <div id="wallet">
-        <p class="balance">Seu saldo: <span id="balance-value">R$0,00</span></p>
-        <h3>Adicionar Fundos</h3>
-        <form>
-          <input type="text" id="value-to-add" title="value-to-add" placeholder="Valor (R$)">
-          <div>
-            <input type="radio" name="cc-choice" id="visa">
-            <label for="visa">Visa</label>
-            <input type="radio" name="cc-choice" id="master">
-            <label for="master">Master</label>
-          </div>
-          <input type="text" title="cc-number" id="cc-number" placeholder="Número do cartão">
-          <div>
-            <input type="text" title="mm" id="mm" placeholder="MM">
-            <input type="text" title="yy" id="yy" placeholder="YY">
-            <input type="text" title="cvv" id="cvv" placeholder="CVV">
-          </div>
-          <div>
-          <input type="button" id="concluir-compra" value="Feito!" class="btn btn-success">
-          <input type="button" id="voltar-compra" value="Voltar" class="btn btn-danger">
-          </div>
-        </form>
       </div>
 
     </section>
