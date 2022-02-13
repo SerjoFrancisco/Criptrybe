@@ -20,7 +20,7 @@ const btnComprar = document.getElementById('btn-comprar');
 const createCustomImage = (imageSource, imageClass) => {
   const img = document.createElement('img');
   img.src = imageSource;
-  img.className = imageClass;// + 'img-thumbnail';
+  img.className = imageClass;
   return img;
 }
 
@@ -51,13 +51,14 @@ const createUser = () => {
   const usersData = JSON.parse(localStorage.getItem('usersData'));
   if (!usersData) {
     localStorage.setItem(username, JSON.stringify({
+      username,
       password,
       funds: 0,
       positions: {},
     }));
   }
   registerElem.querySelector('.username').value = '';
-  registerElem.querySelector('.password').value = '';
+  registerElem.querySelectorAll('.password').forEach((e) => e.value = '');
 }
 
 const loginLogout = (block, none) => {
@@ -71,10 +72,10 @@ const loginRegister = (block, none) => {
 }
 
 const login = () => {
-  const user = loginElem.querySelector('.username').value;
+  const usr = loginElem.querySelector('.username').value;
   const pwd = loginElem.querySelector('.password').value;
-  const usersData = JSON.parse(localStorage.getItem('usersData'));
-  const { username, password } = usersData.find(({ username }) => username === user);
+  const user = JSON.parse(localStorage.getItem(usr));
+  const { username,password } = user;
   if (pwd === password) {
     loginLogout(loggedElem, notLoggedElem);
     document.querySelector('.user-text').innerHTML = `Bem-vindo(a), <span>${username}</span>!`;
