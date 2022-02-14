@@ -5,7 +5,7 @@ const addFunds = () => {
   loginLogout(walletElem, loggedForm);
   const user = document.querySelector('.user-text span').id;
   const obj = JSON.parse(localStorage.getItem(user));
-  balanceElem.innerHTML = obj.funds.toFixed(2);
+  balanceElem.innerHTML = obj.funds.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 }
 
 const concludeAdd = () => {
