@@ -180,6 +180,14 @@ footer a, footer a:hover{
   cursor: pointer;
 }
 
+.item-list:hover {
+  transform: scale(0.98);
+}
+
+.item-list:active {
+  background-color: rgb(223, 223, 223);
+}
+
 #list h2{
   background-color: #28a745;
   color: white;
