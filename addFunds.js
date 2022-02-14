@@ -20,7 +20,7 @@ const concludeAdd = () => {
   let balance = obj.funds;
   balance += fundsWanted;
   obj.funds = balance;
-  balanceElem.innerHTML = balance;
+  balanceElem.innerHTML = balance.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
   document.querySelector('#value-to-add').value = '';
   localStorage.setItem(user, JSON.stringify(obj));
 }
