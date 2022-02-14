@@ -16,6 +16,8 @@ const loginText = document.querySelector('.login-text');
 const logoutText = document.querySelector('.logout-text');
 
 const btnAdicionar = document.querySelector('.adc-funds p');
+const btnConcludeAdd = document.querySelector('#concluir-compra');
+
 const btnComprar = document.getElementById('btn-comprar');
 
 const walletElem = document.querySelectorAll('#wallet');
@@ -152,6 +154,7 @@ window.onload = async () => {
   logoutText.addEventListener('click', () => {
     loginLogout(notLoggedElem, loggedElem);
     loginRegister(loginElem, registerElem);
+    loginRegister(loginElem, walletElem[0]);
     sessionStorage.setItem('logged', 'false');
   });
   
@@ -161,5 +164,6 @@ window.onload = async () => {
   await listCrypto();
   await cryptOptions();
   btnAdicionar.addEventListener('click', addFunds);
+  btnConcludeAdd.addEventListener('click', concludeAdd)
   btnComprar.addEventListener('click', buyCrypto);
 }
