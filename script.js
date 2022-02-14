@@ -153,6 +153,7 @@ window.onload = async () => {
   registerText.forEach((e) => e.addEventListener('click', () => loginRegister(registerElem, loginElem)));
   loginText.addEventListener('click', () => loginRegister(loginElem, registerElem));
   logoutText.addEventListener('click', () => {
+    backToHomepage();
     loginLogout(notLoggedElem, loggedElem);
     loginRegister(loginElem, registerElem);
     loginRegister(loginElem, walletElem[0]);
