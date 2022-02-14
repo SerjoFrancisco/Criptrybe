@@ -7,14 +7,13 @@
 
 header h1{
   text-align: center;
-  width: 100%;
   color: #28a745;
   font: bold 50px 'Lato', sans-serif
 }
 
 header {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   background-color: white;
   border-bottom: 1px solid #ccc;
   height: 100px;
@@ -23,7 +22,9 @@ header {
 header img {
   height: 70px;
 }
-
+.material-icons{
+  vertical-align: middle;
+}
 .header-center {
   display: flex;
   align-items: center;
@@ -38,9 +39,17 @@ header img {
 
 .into-header {
   display: flex;
+  justify-content: flex-end;
   align-items: center;
   margin: 10px 30px;
-  width: 30%;
+  width: 48%;
+}
+.logo-header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 10px 30px;
+  width: 48%;
 }
 
 .into-header p {
@@ -57,7 +66,6 @@ header img {
 }
 
 .adc-funds {
-  display: flex;
   cursor: pointer;
   margin-right: 10px;
 }
@@ -220,4 +228,17 @@ footer a, footer a:hover{
 
 #hist {
   overflow-y: scroll;
+}
+.comprada span {
+  color: #28a745;
+  display: block;
+  border-bottom: 1px solid #ccc;
+}
+.vendida span {
+  color: #dc3545;
+  display: block;
+  border-bottom: 1px solid #ccc;
+}
+.vendida, .comprada {
+  margin-bottom: 5px;
 }

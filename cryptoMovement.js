@@ -5,12 +5,14 @@ const printHistory = (operation, symbol, coinsAmount, currentPrice, value) => {
   const valueBR = value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
   const div = createElement('div');
   if (operation === 'buy') {
-    div.innerText = `Compra: ${symbol}: ${coinsAmount.toFixed(8)}
-    Preço: ${currentPriceBR}
+    div.className = 'comprada'
+    div.innerHTML = `<span>${symbol}: ${coinsAmount.toFixed(8)}</span>
+    Preço: ${currentPriceBR} \n
     Valor da compra: ${valueBR}`;
   } else if (operation === 'sell') {
-    div.innerText = `Venda: ${symbol}: ${coinsAmount.toFixed(8)}
-    Preço: ${currentPriceBR}
+    div.className = 'vendida'
+    div.innerHTML = `<span>${symbol}: ${coinsAmount.toFixed(8)}</span>
+    Preço: ${currentPriceBR}\n
     Valor da venda: ${valueBR}`;
   }
   history.appendChild(div);

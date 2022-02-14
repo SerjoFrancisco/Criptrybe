@@ -21,33 +21,26 @@
 
   <header>
 
-    <div class="into-header">
+    <div class="logo-header">
       <img src="images/image.png" alt="Logo da Trybe">
-
-      <div class="logged">
-        <div class="adc-funds">     
-          <p>Adicionar Fundos</p>
-          <span class="material-icons">account_balance_wallet</span>
-        </div>
-      </div>    
+      <h1>CrypTrybe</h1>   
     </div>
 
-    <div class="header-center">
-      <h1>CrypTrybe</h1>
-    </div>
 
     <div class="into-header">
-
-      <div class="logged">
-        <p class="user-text"></p>
-        <p class="logout-text">Logout</p>
-      </div>
-
       <div class="not-logged">
         <p class="login-text">Login</p>
         <p class="register-text">Registre-se</p>
       </div>
 
+      <div class="logged">
+        <p class="user-text"></p>
+        <p class="logout-text">Logout</p>
+        <button type="submit" class="btn btn-success adc-funds"><p>Adicionar Fundos</p>
+          <span class="material-icons">account_balance_wallet</span></button>
+      </div>
+
+      
     </div>
 
   </header>
@@ -80,21 +73,21 @@
       </div>
 
       <div class="not-logged login">
-        <div class="row">
+        <form class="row" onsubmit="event.preventDefault()">
           <input autofocus class="form-control username" placeholder="Username">
           <input type="password" class="form-control password" placeholder="Password">
-          <button id="login-btn" type="submit" class="btn btn-success">Login</button>
-        </div>
+          <button  id="login-btn" type="submit" class="btn btn-success">Login</button>
+        </form>
         <p>Não tem um conta? <span class="register-text">Registre-se aqui!</span></p>
       </div>
 
       <div class="not-logged register">
-        <div class="row">
+        <form class="row" onsubmit="event.preventDefault()">
           <input autofocus class="form-control username" placeholder="Username">
           <input type="password" class="form-control password" placeholder="Password">
           <input type="password" class="form-control password" placeholder="Password Confirmation">
-          <button id="register-btn" type="submit" class="btn btn-success">Criar Conta</button>
-        </div>
+          <button  id="register-btn" type="submit" class="btn btn-success">Criar Conta</button>
+        </form>
       </div>
       
       <div id="wallet">
