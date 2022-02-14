@@ -17,6 +17,7 @@ const logoutText = document.querySelector('.logout-text');
 
 const btnAdicionar = document.querySelector('.adc-funds p');
 const btnConcludeAdd = document.querySelector('#concluir-compra');
+const btnAddBack = document.querySelector('#voltar-compra');
 
 const btnComprar = document.getElementById('btn-comprar');
 
@@ -164,6 +165,7 @@ window.onload = async () => {
   await listCrypto();
   await cryptOptions();
   btnAdicionar.addEventListener('click', addFunds);
-  btnConcludeAdd.addEventListener('click', concludeAdd)
+  btnConcludeAdd.addEventListener('click', concludeAdd);
+  btnAddBack.addEventListener('click', backToHomepage);
   btnComprar.addEventListener('click', buyCrypto);
 }

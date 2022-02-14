@@ -24,3 +24,7 @@ const concludeAdd = () => {
   document.querySelector('#value-to-add').value = '';
   localStorage.setItem(user, JSON.stringify(obj));
 }
+
+const backToHomepage = () => {
+  loginLogout(loggedForm, walletElem);
+}
