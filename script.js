@@ -81,7 +81,7 @@ const login = () => {
   const { username,password } = user;
   if (pwd === password) {
     loginLogout(loggedElem, notLoggedElem);
-    document.querySelector('.user-text').innerHTML = `Bem-vindo(a), <span data-name="${username}">${username}</span>!`;
+    document.querySelector('.user-text').innerHTML = `Bem-vindo(a), <span id="${username}">${username}</span>!`;
     sessionStorage.setItem('logged', 'true');
     sessionStorage.setItem('username', username);
   } else {
@@ -140,7 +140,8 @@ window.onload = async () => {
   
   if (JSON.parse(sessionStorage.getItem('logged'))) {
     loginLogout(loggedElem, notLoggedElem);
-    document.querySelector('.user-text').innerHTML = `Bem-vindo(a), <span>${sessionStorage.getItem('username')}</span>!`;
+    const user = sessionStorage.getItem('username');
+    document.querySelector('.user-text').innerHTML = `Bem-vindo(a), <span id="${user}">${user}</span>!`;
   } else {
     loginLogout(notLoggedElem, loggedElem);
     loginRegister(registerElem, loginElem);
