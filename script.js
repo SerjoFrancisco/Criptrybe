@@ -113,11 +113,8 @@ const listListener = (event) => {
 }
 
 const listCrypto = async () => {
-  const carregando = createElement('div', 'carregando');
-  carregando.innerText = 'Carregando...';
-  cryptoList.appendChild(carregando);
   const list = await fetchCryptoList();
-  document.querySelector('.carregando').remove();
+  cryptoList.innerHTML = '';
   list.forEach(({ symbol, price }, index) => {
     const text = `<span data-symbol="${symbol}">${symbol.substring(0, symbol.length - 3)}</span> ${parseFloat(price).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`;
     const li = createElement('li', 'item-list');
@@ -169,6 +166,7 @@ window.onload = async () => {
   loginBtn.addEventListener('click', login);
 
   await listCrypto();
+  await setInterval(listCrypto, 1000);
   await cryptOptions();
   btnAdicionar.addEventListener('click', addFunds);
   btnConcludeAdd.addEventListener('click', concludeAdd);
