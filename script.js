@@ -15,8 +15,10 @@ const loginText = document.querySelector('.login-text');
 
 const logoutText = document.querySelector('.logout-text');
 
+const loggedForm = document.querySelectorAll('.trade');
 const btnComprar = document.getElementById('btn-comprar');
 const walletElem = document.querySelectorAll('.wallet');
+const adcFundsBtn = document.querySelector('.adc-funds');
 
 const createCustomImage = (imageSource, imageClass) => {
   const img = document.createElement('img');
@@ -152,6 +154,8 @@ window.onload = async () => {
   
   registerBtn.addEventListener('click', createUser);
   loginBtn.addEventListener('click', login);
+
+  adcFundsBtn.addEventListener('click', () => loginRegister(walletElem, loggedForm));
 
   await listCrypto();
   await cryptOptions();

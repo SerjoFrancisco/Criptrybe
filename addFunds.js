@@ -1,4 +1,4 @@
-const loggedForm = document.querySelectorAll('.trade');
+const loggedForm = document.querySelectorAll('.logged form');
 const addFunds = () => {
-  loginRegister(walletElem, loggedForm);
+  loginLogout(walletElem, loggedForm);
 }
