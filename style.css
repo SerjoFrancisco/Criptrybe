@@ -59,13 +59,13 @@ header img {
   display: inline-block;
 }
 
-.into-header p:hover, .register-text:hover {
+.logout-text:hover, .register-text:hover {
   cursor: pointer;
   text-decoration: underline;
   color: rgb(68, 70, 62);
 }
 
-.adc-funds {
+.adc-funds p{
   cursor: pointer;
   margin-right: 10px;
 }
@@ -73,6 +73,7 @@ header img {
 .user-text span {
   text-transform: capitalize;
 }
+
 
 .into-header .not-logged, .into-header .logged {
   display: flex;

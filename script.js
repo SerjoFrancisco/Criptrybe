@@ -15,7 +15,7 @@ const loginText = document.querySelector('.login-text');
 
 const logoutText = document.querySelector('.logout-text');
 
-const btnAdicionar = document.querySelector('.adc-funds p');
+const btnAdicionar = document.querySelector('.adc-funds');
 const btnConcludeAdd = document.querySelector('#concluir-compra');
 const btnAddBack = document.querySelector('#voltar-compra');
 
