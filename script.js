@@ -122,10 +122,9 @@ const listCrypto = async () => {
     li.dataset.symbol = symbol;
     li.addEventListener('click', listListener);
     cryptoList.appendChild(li);
-    if(index < 12) {
+    if(index < 12 && imagePanel.children.length < 12) {
       imagePanel.appendChild(createCustomImage(`/images/${symbol.substring(0, symbol.length - 3)}.png`, 'logo'));
     }
-    
   });
 }
 
