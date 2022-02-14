@@ -20,8 +20,9 @@ const btnConcludeAdd = document.querySelector('#concluir-compra');
 const btnAddBack = document.querySelector('#voltar-compra');
 
 const btnComprar = document.getElementById('btn-comprar');
-const walletElem = document.querySelectorAll('.wallet');
-const adcFundsBtn = document.querySelector('.adc-funds');
+const btnVender = document.getElementById('btn-vender');
+
+const walletElem = document.querySelectorAll('#wallet');
 
 const createCustomImage = (imageSource, imageClass) => {
   const img = document.createElement('img');
@@ -61,6 +62,7 @@ const createUser = () => {
       password,
       funds: 0,
       positions: {},
+      history: '',
     }));
   }
   registerElem.querySelector('.username').value = '';
@@ -125,6 +127,7 @@ const listCrypto = async () => {
     if(index < 12) {
       imagePanel.appendChild(createCustomImage(`/images/${symbol.substring(0, symbol.length - 3)}.png`, 'logo'));
     }
+    
   });
 }
 
@@ -139,10 +142,13 @@ async function cryptOptions () {
 }
 
 window.onload = async () => {
+  
   if (JSON.parse(sessionStorage.getItem('logged'))) {
     loginLogout(loggedElem, notLoggedElem);
     const user = sessionStorage.getItem('username');
     document.querySelector('.user-text').innerHTML = `Bem-vindo(a), <span id="${user}">${user}</span>!`;
+    const { history } = JSON.parse(localStorage.getItem(user));
+    document.querySelector('#history').innerHTML = history;
   } else {
     loginLogout(notLoggedElem, loggedElem);
     loginRegister(registerElem, loginElem);
@@ -161,12 +167,11 @@ window.onload = async () => {
   registerBtn.addEventListener('click', createUser);
   loginBtn.addEventListener('click', login);
 
-  adcFundsBtn.addEventListener('click', () => loginRegister(walletElem, loggedForm));
-
   await listCrypto();
   await cryptOptions();
   btnAdicionar.addEventListener('click', addFunds);
   btnConcludeAdd.addEventListener('click', concludeAdd);
   btnAddBack.addEventListener('click', backToHomepage);
-  btnComprar.addEventListener('click', buyCrypto);
+  btnComprar.addEventListener('click', () => tradeCrypto('buy'));
+  btnVender.addEventListener('click', () => tradeCrypto('sell'));
 }

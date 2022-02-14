@@ -1,17 +1,10 @@
 {
   "name": "criptrybe",
   "version": "1.0.0",
-<<<<<<< HEAD
-  "description": "",
-  "main": "script.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-=======
   "description": "Repositório do projeto bonus da semana OnTrack de fundamentos da trybe",
   "main": "script.js",
   "scripts": {
     "test": "jest"
->>>>>>> b0a0e0699cd54b50223458b14b9637af2a32309a
   },
   "repository": {
     "type": "git",

@@ -12,6 +12,8 @@
   <script src="script.js" defer></script>
   <script src="fetchCryptoList.js" defer></script>
   <script src="fetchCrypto.js" defer></script>
+  <script src="cryptoMovement.js" defer></script>
+  <script src="addFunds.js" defer></script>
   <link rel="stylesheet" href="style.css">
   <title>Criptrybe</title>
 </head>
@@ -58,49 +60,23 @@
       </div>
     </section>
 
-    <section id="form">
+    <section id='form'>
 
       <div class="logged">
-        <div class="trade">
-          <form>
-            <label for="input-value">Compre sua moeda aqui</label>
-            <div id="shopping">
-              <input type="text" id="input-value" placeholder="Valor (R$)">
-              <select title="Moneys" name="Moneys" id="options"> 
-                <option value="Other">Cryptos</option>
-              </select>
-            </div>
-            <div class="buttons"> 
-              <button type="button" class="btn btn-success">Comprar?</button>
-              <button type="button" class="btn btn-danger">Vender! Vender!</button>
-            </div>
-          </form>
-          <div id="saldo"></div>
-        </div>
-
-        <div class="wallet">
-          <p class="balance">Seu saldo: <span id="balance-value">R$0,00</span></p>
-          <h3>Adicionar Fundos</h3>
-          <form>
-            <input type="text" id="value-to-add" title="value-to-add" placeholder="Valor (R$)">
-            <div>
-              <input type="radio" name="cc-choice" id="visa">
-              <label for="visa">Visa</label>
-              <input type="radio" name="cc-choice" id="master">
-              <label for="master">Master</label>
-            </div>
-            <input type="text" title="cc-number" id="cc-number" placeholder="Número do cartão">
-            <div>
-              <input type="text" title="mm" id="mm" placeholder="MM">
-              <input type="text" title="yy" id="yy" placeholder="YY">
-              <input type="text" title="cvv" id="cvv" placeholder="CVV">
-            </div>
-            <div>
-            <input type="button" id="concluir-compra" value="Feito!" class="btn btn-success">
-            <input type="button" id="voltar-compra" value="Voltar" class="btn btn-danger">
-            </div>
-          </form>
-        </div>
+        <form>
+          <label for="input-value">Compre sua moeda aqui</label>
+          <div id="shopping">
+            <input type="text" id="input-value" placeholder="Valor (R$)">
+            <select title="Moneys" name="Moneys" id="options"> 
+              <option value="Other">Cryptos</option>
+            </select>
+          </div>
+          <div class="buttons"> 
+            <button id="btn-comprar" type="button" class="btn btn-success">Comprar?</button>
+            <button id="btn-vender" type="button" class="btn btn-danger">Vender! Vender!</button>
+          </div>
+        </form>
+        <div id="saldo"></div>
       </div>
 
       <div class="not-logged login">
@@ -120,10 +96,34 @@
           <button id="register-btn" type="submit" class="btn btn-success">Criar Conta</button>
         </div>
       </div>
+      
+      <div id="wallet">
+        <p class="balance">Seu saldo: <span id="balance-value">R$0,00</span></p>
+        <h3>Adicionar Fundos</h3>
+        <form>
+          <input type="text" id="value-to-add" title="value-to-add" placeholder="Valor (R$)">
+          <div>
+            <input type="radio" name="cc-choice" id="visa">
+            <label for="visa">Visa</label>
+            <input type="radio" name="cc-choice" id="master">
+            <label for="master">Master</label>
+          </div>
+          <input type="text" title="cc-number" id="cc-number" placeholder="Número do cartão">
+          <div>
+            <input type="text" title="mm" id="mm" placeholder="MM">
+            <input type="text" title="yy" id="yy" placeholder="YY">
+            <input type="text" title="cvv" id="cvv" placeholder="CVV">
+          </div>
+          <div>
+          <input type="button" id="concluir-compra" value="Feito!" class="btn btn-success">
+          <input type="button" id="voltar-compra" value="Voltar" class="btn btn-danger">
+          </div>
+        </form>
+      </div>
 
     </section>
     <section id="hist">
-      <div id="historic" class="logged">
+      <div id="history" class="logged">
         <h1>Histórico:</h1>
       </div>
       <div class="not-logged"></div>
