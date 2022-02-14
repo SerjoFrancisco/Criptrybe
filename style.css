@@ -30,7 +30,6 @@ header img {
   align-items: center;
   justify-content: space-between;
   width: 40%;
-  /* max-width: 1200px; */
 }
 
 .form-control {
@@ -59,7 +58,7 @@ header img {
   display: inline-block;
 }
 
-.logout-text:hover, .register-text:hover {
+.logout-text:hover, .register-text:hover, .login-text:hover {
   cursor: pointer;
   text-decoration: underline;
   color: rgb(68, 70, 62);
