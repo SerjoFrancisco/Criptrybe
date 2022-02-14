@@ -73,7 +73,6 @@ header img {
   text-transform: capitalize;
 }
 
-
 .into-header .not-logged, .into-header .logged {
   display: flex;
   flex-direction: row;
@@ -160,7 +159,6 @@ footer a, footer a:hover{
 
 .copy-left {
   display: inline-block;
-  /*transform: rotate(180deg); */
 }
 
 #list {
@@ -239,16 +237,28 @@ footer a, footer a:hover{
 #hist {
   overflow-y: scroll;
 }
+
 .comprada span {
   color: #28a745;
   display: block;
   border-bottom: 1px solid #ccc;
 }
+
 .vendida span {
   color: #dc3545;
   display: block;
   border-bottom: 1px solid #ccc;
 }
+
 .vendida, .comprada {
   margin-bottom: 5px;
+}
+
+#cc-form .form-control {
+  width: 90%;
+}
+
+#cc-info .form-control {
+  display: inline-block;
+  width: 25%;
 }
