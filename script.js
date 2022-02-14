@@ -89,7 +89,7 @@ const login = () => {
     document.querySelector('.user-text').innerHTML = `Bem-vindo(a), <span id="${username}">${username}</span>!`;
     sessionStorage.setItem('logged', 'true');
     sessionStorage.setItem('username', username);
-    if (user.history !== '') document.querySelector('#history').innerHTML = user.history;
+    document.querySelector('#history').innerHTML = user.history;
   } else {
     console.log('Incorrect User and/or Password');
   }
@@ -145,7 +145,7 @@ window.onload = async () => {
     const user = sessionStorage.getItem('username');
     document.querySelector('.user-text').innerHTML = `Bem-vindo(a), <span id="${user}">${user}</span>!`;
     const { history } = JSON.parse(localStorage.getItem(user));
-    if (history !== '') document.querySelector('#history').innerHTML = history;
+    document.querySelector('#history').innerHTML = history;
   } else {
     loginLogout(notLoggedElem, loggedElem);
     loginRegister(registerElem, loginElem);
