@@ -15,7 +15,10 @@ const loginText = document.querySelector('.login-text');
 
 const logoutText = document.querySelector('.logout-text');
 
-const loggedForm = document.querySelectorAll('.trade');
+const btnAdicionar = document.querySelector('.adc-funds p');
+const btnConcludeAdd = document.querySelector('#concluir-compra');
+const btnAddBack = document.querySelector('#voltar-compra');
+
 const btnComprar = document.getElementById('btn-comprar');
 const walletElem = document.querySelectorAll('.wallet');
 const adcFundsBtn = document.querySelector('.adc-funds');
@@ -81,7 +84,7 @@ const login = () => {
   const { username,password } = user;
   if (pwd === password) {
     loginLogout(loggedElem, notLoggedElem);
-    document.querySelector('.user-text').innerHTML = `Bem-vindo(a), <span data-name="${username}">${username}</span>!`;
+    document.querySelector('.user-text').innerHTML = `Bem-vindo(a), <span id="${username}">${username}</span>!`;
     sessionStorage.setItem('logged', 'true');
     sessionStorage.setItem('username', username);
   } else {
@@ -138,7 +141,8 @@ async function cryptOptions () {
 window.onload = async () => {
   if (JSON.parse(sessionStorage.getItem('logged'))) {
     loginLogout(loggedElem, notLoggedElem);
-    document.querySelector('.user-text').innerHTML = `Bem-vindo(a), <span>${sessionStorage.getItem('username')}</span>!`;
+    const user = sessionStorage.getItem('username');
+    document.querySelector('.user-text').innerHTML = `Bem-vindo(a), <span id="${user}">${user}</span>!`;
   } else {
     loginLogout(notLoggedElem, loggedElem);
     loginRegister(registerElem, loginElem);
@@ -147,8 +151,10 @@ window.onload = async () => {
   registerText.forEach((e) => e.addEventListener('click', () => loginRegister(registerElem, loginElem)));
   loginText.addEventListener('click', () => loginRegister(loginElem, registerElem));
   logoutText.addEventListener('click', () => {
+    backToHomepage();
     loginLogout(notLoggedElem, loggedElem);
     loginRegister(loginElem, registerElem);
+    loginRegister(loginElem, walletElem[0]);
     sessionStorage.setItem('logged', 'false');
   });
   
@@ -159,5 +165,8 @@ window.onload = async () => {
 
   await listCrypto();
   await cryptOptions();
+  btnAdicionar.addEventListener('click', addFunds);
+  btnConcludeAdd.addEventListener('click', concludeAdd);
+  btnAddBack.addEventListener('click', backToHomepage);
   btnComprar.addEventListener('click', buyCrypto);
 }
