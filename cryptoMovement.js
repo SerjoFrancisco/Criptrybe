@@ -6,14 +6,12 @@ const printHistory = (operation, symbol, coinsAmount, currentPrice, value) => {
   const div = createElement('div');
   if (operation === 'buy') {
     div.className = 'comprada'
-    div.innerHTML = `<span>${symbol}: ${coinsAmount.toFixed(8)}</span>
-    Preço: ${currentPriceBR} \n
-    Valor da compra: ${valueBR}`;
+    div.innerHTML = `<span>${symbol} - Qtd: ${coinsAmount.toFixed(8)}</span>
+    Preço: ${currentPriceBR} <br> Valor da compra: ${valueBR}`;
   } else if (operation === 'sell') {
     div.className = 'vendida'
-    div.innerHTML = `<span>${symbol}: ${coinsAmount.toFixed(8)}</span>
-    Preço: ${currentPriceBR}\n
-    Valor da venda: ${valueBR}`;
+    div.innerHTML = `<span>${symbol} - Qtd: ${coinsAmount.toFixed(8)}</span>
+    Preço: ${currentPriceBR} <br> Valor da venda: ${valueBR}`;
   }
   history.appendChild(div);
   const userObj = JSON.parse(localStorage.getItem(user));
